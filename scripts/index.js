@@ -6,7 +6,7 @@ document.getElementById("js-city-select").innerHTML = displayCities();
 function fetchPrayerTimings(city, country) {
   axios
     .get(
-      `http://api.aladhan.com/v1/timingsByCity?country=${country}&city=${city}`
+      `https://api.aladhan.com/v1/timingsByCity?country=${country}&city=${city}`
     )
     .then((response) => {
       const date = response.data.data.date.readable;
