@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- CSS styles -->
+  <link rel="stylesheet" href="styles/tailwind.css">
+
+</head>
+
+<body class="bg-dark2 bg-no-repeat bg-cover bg-center text-slate-200">
+  <header class="mt-6 mb-6 bg-gradient-to-b from-customGreen to-dark text-sof h-8 flex items-center justify-around">
+    <img src="./assets/icon.png" alt="prayer icon" class="h-7">
+    <p class="text-2xl font-semibold">
+      ISLAMIC PRAYER TIMES
+    </p>
+  </header>
+
+  <main>
+    <div class="flex flex-col gap-y-4 md:flex-row justify-around items-center text-xl mb-8">
+      <div class="flex flex-col gap-y-4 sm:flex-row sm:gap-2 md:gap-6 items-center">
+        <div class="flex flex-col">
+          <div class="date">
+            Date: <span class="js-today-date"></span>
+          </div>
+          <div>
+            Location: <span class="js-city"></span>/ Morocco
+          </div>
+        </div>
+
+        <div class="flex relative h-4">
+          <select id="js-city-select"
+            class="bg-green-100 text-black rounded-full text-base pl-3 md:pr-7 appearance-none border-none">
+          </select>
+          <div class="bg-customGreen w-6 absolute h-full right-0 flex items-center justify-center rounded-r-full"
+            id="dropdown-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <button class="js-location bg-green-100 text-base text-black flex items-center justify-around rounded-full h-4 p-3">
+        Auto location
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+          <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+          <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex items-center justify-around">
+      <div class="grid sm:grid-cols-3 md:grid-cols-4 gap-y-7 lg:gap-x-9 sm:gap-x-5 md:gap-x-7">
+        <div class="prayer">
+          <div class="prayer_name">Fajr</div>
+          <div class="prayer_timing js-fajr-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Sunrise:</div>
+          <div class="prayer_timing js-sunrise-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Dhuhr</div>
+          <div class="prayer_timing js-dhuhr-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Asr</div>
+          <div class="prayer_timing js-asr-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Sunset</div>
+          <div class="prayer_timing js-sunset-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Maghrib</div>
+          <div class="prayer_timing js-maghrib-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Isha</div>
+          <div class="prayer_timing js-isha-timing"></div>
+        </div>
+        <div class="prayer">
+          <div class="prayer_name">Last-Third</div>
+          <div class="prayer_timing js-lastthird-timing"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- axios library to fetch api -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
+</body>
+
+</html>
