@@ -640,18 +640,14 @@ video {
   width: 40px;
 }
 
-.min-w-0 {
-  min-width: 0px;
-}
-
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -670,21 +666,37 @@ video {
   justify-content: space-around;
 }
 
-.gap-6 {
-  gap: 40px;
-}
-
-.gap-x-9 {
-  -moz-column-gap: 128px;
-       column-gap: 128px;
+.gap-y-4 {
+  row-gap: 24px;
 }
 
 .gap-y-7 {
   row-gap: 50px;
 }
 
-.gap-y-4 {
-  row-gap: 24px;
+.gap-x-2 {
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+}
+
+.gap-x-6 {
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+
+.gap-x-5 {
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+}
+
+.gap-x-4 {
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+
+.gap-x-3 {
+  -moz-column-gap: 16px;
+       column-gap: 16px;
 }
 
 .rounded-full {
@@ -748,10 +760,6 @@ video {
   padding-left: 16px;
 }
 
-.pr-7 {
-  padding-right: 50px;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -782,10 +790,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -794,45 +798,17 @@ video {
     flex-direction: row;
   }
 
-  .sm\:flex-col {
-    flex-direction: column;
-  }
-
   .sm\:gap-2 {
     gap: 12px;
-  }
-
-  .sm\:gap-x-2 {
-    -moz-column-gap: 12px;
-         column-gap: 12px;
-  }
-
-  .sm\:gap-x-4 {
-    -moz-column-gap: 24px;
-         column-gap: 24px;
   }
 
   .sm\:gap-x-5 {
     -moz-column-gap: 32px;
          column-gap: 32px;
   }
-
-  .sm\:gap-y-4 {
-    row-gap: 24px;
-  }
 }
 
 @media (min-width: 768px) {
-  @media (min-width: 640px) {
-    .md\:sm\:grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -856,14 +832,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:gap-x-9 {
     -moz-column-gap: 128px;
          column-gap: 128px;
