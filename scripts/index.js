@@ -3,12 +3,16 @@ import { getCityAndCountry } from "./location.js";
 
 document.getElementById("js-city-select").innerHTML = displayCities();
 
+const spinCirle = document.querySelector(".spinCircle");
+
 function fetchPrayerTimings(city, country) {
+  spinCirle.style.display = "block";
   axios
     .get(
       `https://api.aladhan.com/v1/timingsByCity?country=${country}&city=${city}`
     )
     .then((response) => {
+      spinCirle.style.display = "none";
       const date = response.data.data.date.readable;
       const day = response.data.data.date.gregorian.weekday.en;
       document.querySelector(".js-today-date").innerHTML = ` ${day} ${date}`;
@@ -38,6 +42,7 @@ function replaceTiming(className, prayerTiming) {
 
 function handleLocation() {
   if ("geolocation" in navigator) {
+    spinCirle.style.display = "block";
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const latitude = position.coords.latitude;
@@ -47,13 +52,18 @@ function handleLocation() {
         if (location) {
           const { city, country } = location;
           fetchPrayerTimings(city, country);
+          spinCirle.style.display = "none";
+          autoLocationBtn.style.backgroundColor = "#8ED051";
         } else {
-          console.log("Unable to determine user location.");
+          autoLocationBtn.style.backgroundColor = "";
+          alert(
+            "Unable to determine user location. Try later or pick a city from dropdown list."
+          );
         }
       },
       (error) => {
         alert(
-          "Error getting user location: Enable location access or choose city from dropdown list",
+          "Error getting user location: Please Enable location access or choose city from dropdown list",
           error
         );
       }
@@ -72,18 +82,8 @@ function handleLocation() {
     });
 }
 const autoLocationBtn = document.querySelector(".js-location");
-let watchId = null;
-let isLocationActive = false;
-
 autoLocationBtn.addEventListener("click", () => {
-  if (!isLocationActive) {
-    watchId = navigator.geolocation.watchPosition(handleLocation);
-    autoLocationBtn.style.backgroundColor = "#8ED051";
-  } else {
-    navigator.geolocation.clearWatch(watchId);
-    autoLocationBtn.style.backgroundColor = "";
-  }
-  isLocationActive = !isLocationActive;
+  handleLocation();
 });
 
 document.getElementById("dropdown-icon").addEventListener("click", function () {
