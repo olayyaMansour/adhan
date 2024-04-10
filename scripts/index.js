@@ -62,10 +62,7 @@ function handleLocation() {
         }
       },
       (error) => {
-        alert(
-          "Error getting user location: Please Enable location access or choose city from dropdown list",
-          error
-        );
+        console.log("Error getting user location", error);
       }
     );
   } else {
